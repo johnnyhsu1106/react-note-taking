@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 import { v4 as uuidV4 } from 'uuid'
 
 import HomePage from './pages/Homepage';
-import NotePage from './pages/NotePage';
+import NotesPage from './pages/NotesPage';
 import CreateNotePage from './pages/CreateNotePage';
 import EditNotePage from './pages/EditNotePage';
 
@@ -111,7 +111,7 @@ function App() {
         <Route path='/:id' element={<NoteContext notes={notesWithTags} />} >
           <Route 
             index 
-            element={<NotePage onDeleteNote={handleNoteDelete} />} 
+            element={<NotesPage onDeleteNote={handleNoteDelete} />} 
           />
           
           <Route 

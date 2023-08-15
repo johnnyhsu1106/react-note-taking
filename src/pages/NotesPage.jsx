@@ -8,9 +8,10 @@ import TagList from '../components/share/TagList/TagList';
 import { useNote } from '../context/NoteContext';
 
 
-const NotePage = ({
+const NotesPage = ({
   onDeleteNote
 }) => {
+  
   const note = useNote();
   const navigate = useNavigate();
   const {id} = note;
@@ -61,4 +62,4 @@ const NotePage = ({
   )
 }
 
-export default NotePage;
+export default NotesPage;

@@ -93,7 +93,7 @@ const NoteForm = ({
         
         <Form.Group controlId='markdown'>
           <Form.Control
-            placeholder='Start to add note here'
+            placeholder='Add note here'
             defaultValue={markdown}
             required
             as='textarea'
