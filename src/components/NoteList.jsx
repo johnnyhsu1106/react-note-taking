@@ -17,8 +17,6 @@ const NoteList = ({
   const [title, setTitle] = useState('');
   const [isEditTagsModalOpen, setIsEditTagsModalOpen] = useState(false);
 
-  // const navigate = useNavigate();
-
   const filteredNotes = useMemo(() => {
     return notes.filter((note) => {
       if (title.trim() === '' && selectedTags.length === 0) {
@@ -75,7 +73,7 @@ const NoteList = ({
               />
             </Form.Group>
           </Col>
-          
+
           <Col>
             <Form.Group controlId='tags'>
               <ReactSelect
