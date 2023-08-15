@@ -1,5 +1,5 @@
 import { Badge, Stack } from 'react-bootstrap'
-
+import Tag from './Tag';
 
 const TagList = ({
   tags
@@ -15,18 +15,13 @@ const TagList = ({
       gap={1}  
     >
       {tags.map((tag) => {
+        const { id } = tag;
         return (
-          <Badge 
-            className='text-white text-truncate' 
-            key={tag.id}
-            bg='success'
-          >
-            {tag.label}
-          </Badge>
+          <Tag key={id} tag={tag} />
         )
       })}
     </Stack>
   )
 }
 
-export { TagList };
+export default TagList;

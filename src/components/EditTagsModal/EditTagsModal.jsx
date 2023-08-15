@@ -24,7 +24,6 @@ const EditTagsModal = ({
               const { id, label } = availableTag;
               return (
                 <Row key={id}>
-                  
                   <Col>
                     <Form.Control
                       type='text'
@@ -35,7 +34,7 @@ const EditTagsModal = ({
 
                   <Col xs='auto'>
                     <Button
-                      onClick={() => onDeleteTag(id)}
+                      onClick={() =>{ onDeleteTag(id) }}
                       variant='outline-danger'
                     >
                       &times;
@@ -52,4 +51,4 @@ const EditTagsModal = ({
   )
 }
 
-export { EditTagsModal }; 
+export default EditTagsModal; 

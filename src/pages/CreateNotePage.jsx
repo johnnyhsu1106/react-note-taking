@@ -1,6 +1,6 @@
-import { NoteForm } from './NoteForm';
+import NoteForm from '../components/share/NoteForm/NoteForm';
 
-const NewNote = ({
+const CreateNotePage = ({
   availableTags,
   onCreateNote,
   onAddNewTag
@@ -17,4 +17,4 @@ const NewNote = ({
   )
 }
 
-export { NewNote };
+export default CreateNotePage;

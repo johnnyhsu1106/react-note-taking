@@ -2,9 +2,8 @@ import React from 'react'
 import { Card, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { TagList } from './TagList';
+import TagList from '../share/TagList/TagList';
 
-import styles from './NoteCard.module.css';
 
 const NoteCard = ({
   id,
@@ -13,7 +12,7 @@ const NoteCard = ({
 }) => {
   return (
     <Card
-      className={`h-100 text-reset text-decoration-none ${styles.card}`}
+      className={'h-100 text-reset text-decoration-none note-card'}
       as={Link}
       to={`/${id}`}
     >
@@ -30,4 +29,4 @@ const NoteCard = ({
   )
 }
 
-export { NoteCard };
+export default NoteCard;

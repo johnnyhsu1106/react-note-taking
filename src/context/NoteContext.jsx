@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useOutletContext, useParams } from 'react-router-dom';
 
-const NoteLayout = ({
+const NoteContext = ({
   notes
 }) => {
 
@@ -20,5 +20,5 @@ const useNote = () => {
   return useOutletContext();
 };
 
-export { useNote, NoteLayout };
+export { useNote, NoteContext };
 

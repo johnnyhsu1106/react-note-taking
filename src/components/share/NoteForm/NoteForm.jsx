@@ -4,6 +4,8 @@ import CreatableReactSelect from 'react-select/creatable';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidV4 } from 'uuid'
 
+import CtaButtons from './CtaButtons';
+
 const NoteForm = ({
   onSubmitForm,
   onAddNewTag,
@@ -88,11 +90,10 @@ const NoteForm = ({
             </Form.Group>
           </Col>
         </Row>
-
-  
+        
         <Form.Group controlId='markdown'>
-          <Form.Label>Note</Form.Label>
           <Form.Control
+            placeholder='Start to add note here'
             defaultValue={markdown}
             required
             as='textarea'
@@ -101,30 +102,12 @@ const NoteForm = ({
           />
         </Form.Group>
 
-        <Stack 
-          className='justify-content-end'
-          direction='horizontal' 
-          gap={2}
-        >
-          <Button 
-            type='submit' 
-            variant='dark'>
-            Save
-          </Button>
-          
-          <Link to='..'>
-            <Button 
-              type='button' 
-              variant='outline-secondary'>
-              Cancel
-            </Button>
-          </Link>
-          
-        </Stack>
+        <CtaButtons />
+
 
       </Stack>
     </Form>
   )
 }
 
-export { NoteForm };
+export default NoteForm;

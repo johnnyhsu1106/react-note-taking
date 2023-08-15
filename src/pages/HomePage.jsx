@@ -1,12 +1,13 @@
 import { useState, useMemo } from 'react';
 import { Row, Col, Stack, Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ReactSelect from 'react-select';
 
-import { NoteCard } from './NoteCard';
-import { EditTagsModal } from './EditTagsModal';
+import NoteCardList from '../components/NoteCardList/NoteCardList';
+import EditTagsModal from '../components/EditTagsModal/EditTagsModal';
 
-const NoteList = ({
+
+const HomePage = ({
   availableTags,
   notes,
   onUpdateTag,
@@ -34,10 +35,11 @@ const NoteList = ({
     })
   }, [title, selectedTags, notes]);
 
+
   return (
     <>
       <Row className='align-items-center mb-4'>
-        <Col><h1>Notes</h1></Col>
+        <Col><h1>Note...</h1></Col>
 
         <Col xs='auto'>
           <Stack 
@@ -58,17 +60,13 @@ const NoteList = ({
       </Row>
 
       <Form>
-        <Row className='mb-4'></Row>
-          <Col>
-
-          </Col>
         <Row className='mb-4'>
           <Col>
             <Form.Group controlId='title'>
               <Form.Control
                 type='text'
                 value={title}
-                placeholder='Search by keyword'
+                placeholder='Search title by keyword'
                 onChange={(e) => {setTitle(e.target.value)}}
               />
             </Form.Group>
@@ -103,20 +101,8 @@ const NoteList = ({
         </Row>
       </Form>
 
-      <Row xs={1} sm={2} lg={3} xl={4} className='g-3'>
-        { filteredNotes.map((filteredNote) => {
-          const { id , title, tags } = filteredNote;
-          return (
-            <Col key={id}>
-              <NoteCard
-                id={id}
-                title={title}
-                tags={tags} 
-              />
-            </Col>
-          )
-        })}
-      </Row>
+
+      <NoteCardList filteredNotes={filteredNotes} />
 
       <EditTagsModal
         availableTags={availableTags}
@@ -129,4 +115,4 @@ const NoteList = ({
   )
 }
 
-export { NoteList };
+export default HomePage;

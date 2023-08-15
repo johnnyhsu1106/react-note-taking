@@ -1,7 +1,8 @@
-import { NoteForm } from './NoteForm';
-import { useNote } from './NoteLayout';
+import NoteForm from '../components/share/NoteForm/NoteForm';
+import { useNote } from '../context/NoteContext';
 
-const EditNote = ({
+
+const EditNotePage = ({
   availableTags,
   onUpdateNote,
   onAddNewTag
@@ -22,4 +23,4 @@ const EditNote = ({
   )
 }
 
-export { EditNote };
+export default EditNotePage;

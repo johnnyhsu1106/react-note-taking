@@ -3,12 +3,12 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
 import { v4 as uuidV4 } from 'uuid'
 
-import { Note } from './components/Note';
-import { NewNote } from './components/NewNote';
-import { NoteList } from './components/NoteList';
-import { NoteLayout } from './components/NoteLayout';
-import { EditNote } from './components/EditNote';
+import HomePage from './pages/Homepage';
+import NotePage from './pages/NotePage';
+import CreateNotePage from './pages/CreateNotePage';
+import EditNotePage from './pages/EditNotePage';
 
+import { NoteContext } from './context/NoteContext';
 import useLocalStorage from './hooks/useLocalStorage';
 
 import './App.css'
@@ -78,6 +78,10 @@ function App() {
     })
   };
 
+  const handleTagSelect = (tag) => {
+    
+  }
+
 
   return (
     <Container className='my-4'>
@@ -85,7 +89,7 @@ function App() {
         <Route 
           path='/' 
           element={
-            <NoteList
+            <HomePage
               onUpdateTag={handleTagUpdate}
               onDeleteTag={handleTagDelete}
               availableTags={tags} 
@@ -96,7 +100,7 @@ function App() {
         <Route 
           path='/new' 
           element={
-            <NewNote
+            <CreateNotePage
               availableTags={tags} 
               onCreateNote={handleNoteCreate} 
               onAddNewTag={handleTagAdd} 
@@ -104,16 +108,16 @@ function App() {
           } 
         />
 
-        <Route path='/:id' element={<NoteLayout notes={notesWithTags} />} >
+        <Route path='/:id' element={<NoteContext notes={notesWithTags} />} >
           <Route 
             index 
-            element={<Note onDeleteNote={handleNoteDelete} />} 
+            element={<NotePage onDeleteNote={handleNoteDelete} />} 
           />
           
           <Route 
             path='edit' 
             element={
-              <EditNote
+              <EditNotePage
                 availableTags={tags} 
                 onUpdateNote={handleNoteUpdate} 
                 onAddNewTag={handleTagAdd}   
