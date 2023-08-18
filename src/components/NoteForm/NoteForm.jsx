@@ -14,7 +14,7 @@ const NoteForm = ({
   markdown = '',
   tags = []
 }) => {
-  // tags = [{id, value}, ...]
+  // tags = [{id, label}, ...]
   const [selectedTags, setSelectedTags] = useState(tags);
   const titleRef = useRef(null);
   const markdownRef = useRef(null);
@@ -57,8 +57,8 @@ const NoteForm = ({
         <Row>
           <Col>
             <Form.Group controlId='title'>
-              <Form.Label> Title </Form.Label>
               <Form.Control
+                placeholder='Title...'
                 defaultValue={title}
                 ref={titleRef} 
                 required/>

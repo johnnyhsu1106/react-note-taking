@@ -10,9 +10,9 @@ const NoteFormSelect = ({
 }) => {
   return (
     <Form.Group controlId='tags'>
-      <Form.Label>Tags</Form.Label>
       <CreatableReactSelect 
         isMulti
+        placeholder='Add some tags...'
 
         options={ availableTags.map((availableTag) => {
           return { 
