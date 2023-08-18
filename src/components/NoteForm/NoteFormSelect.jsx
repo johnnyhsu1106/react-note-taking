@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { Form } from 'react-bootstrap'
 import CreatableReactSelect from 'react-select/creatable';
 
@@ -8,8 +9,11 @@ const NoteFormSelect = ({
   onSelectTags,
   onCreateTags
 }) => {
+  const divId = useId();
+  
   return (
-    <Form.Group controlId='tags'>
+    <Form.Group controlId={`${divId}-tags`}>
+      <Form.Label hidden>Tags</Form.Label>
       <CreatableReactSelect 
         isMulti
         placeholder='Add some tags...'

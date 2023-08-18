@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { Form, Stack, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidV4 } from 'uuid'
@@ -19,6 +19,7 @@ const NoteForm = ({
   const titleRef = useRef(null);
   const markdownRef = useRef(null);
   const navigate = useNavigate();
+  const divId = useId();  
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -56,7 +57,8 @@ const NoteForm = ({
       <Stack gap={4}>
         <Row>
           <Col>
-            <Form.Group controlId='title'>
+            <Form.Group controlId={`${divId}-title`}>
+              <Form.Label hidden>Title</Form.Label>
               <Form.Control
                 placeholder='Title...'
                 defaultValue={title}
@@ -67,15 +69,16 @@ const NoteForm = ({
           
           <Col>
             <NoteFormSelect
-                availableTags={availableTags}
-                selectedTags={selectedTags}
-                onSelectTags={handleTagsSelect}
-                onCreateTags={handleTagsCreate}
+              availableTags={availableTags}
+              selectedTags={selectedTags}
+              onSelectTags={handleTagsSelect}
+              onCreateTags={handleTagsCreate}
             />
           </Col>
         </Row>
         
-        <Form.Group controlId='markdown'>
+        <Form.Group controlId={`${divId}-markdown`}>
+        <Form.Label hidden>Markdown</Form.Label>
           <Form.Control
             placeholder='Add note here'
             defaultValue={markdown}

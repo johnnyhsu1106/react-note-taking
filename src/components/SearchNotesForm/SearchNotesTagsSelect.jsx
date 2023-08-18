@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { Form } from 'react-bootstrap';
 import ReactSelect from 'react-select';
 
@@ -7,8 +8,10 @@ const SearchNotesTagsSelect = ({
   selectedTags,
   onSearchTags
 }) => {
+  const divId = useId();
   return (
-    <Form.Group controlId='tags'>
+    <Form.Group controlId={`${divId}-title`}>
+      <Form.Label hidden>Title</Form.Label>
       <ReactSelect
         isMulti
         placeholder='Search by tags'
