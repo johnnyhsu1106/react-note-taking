@@ -1,4 +1,6 @@
 import { Navigate, Outlet, useOutletContext, useParams } from 'react-router-dom';
+import NotFoundPage from '../pages/NotFoundPage';
+
 
 const NoteContext = ({
   notes
@@ -10,7 +12,7 @@ const NoteContext = ({
   });
 
   if (!targetNote) {
-    return <Navigate to='/' replace />;
+    return <NotFoundPage />
   }
 
   return <Outlet context={targetNote} />

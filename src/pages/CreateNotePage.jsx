@@ -1,4 +1,5 @@
-import NoteForm from '../components/share/NoteForm/NoteForm';
+import NoteForm from '../components/NoteForm/NoteForm';
+
 
 const CreateNotePage = ({
   availableTags,

@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import TagList from '../share/TagList/TagList';
+import TagList from '../TagList/TagList';
 
 
 const NoteCard = ({

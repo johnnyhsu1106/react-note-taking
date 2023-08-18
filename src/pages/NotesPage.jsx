@@ -3,7 +3,7 @@ import { Row, Col, Stack } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-import TagList from '../components/share/TagList/TagList';
+import TagList from '../components/TagList/TagList';
 
 import { useNote } from '../context/NoteContext';
 

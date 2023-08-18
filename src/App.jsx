@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
 import { v4 as uuidV4 } from 'uuid'
 import HomePage from './pages/Homepage';
 import NotesPage from './pages/NotesPage';
 import CreateNotePage from './pages/CreateNotePage';
 import EditNotePage from './pages/EditNotePage';
+import NotFoundPage from './pages/NotFoundPage';
 import { NoteContext } from './context/NoteContext';
 import useLocalStorage from './hooks/useLocalStorage';
 import './App.css'
@@ -89,7 +90,7 @@ function App() {
           } 
         />
         <Route 
-          path='/new' 
+          path='new' 
           element={
             <CreateNotePage
               availableTags={tags} 
@@ -100,7 +101,7 @@ function App() {
         />
 
         <Route 
-          path='/:id' 
+          path=':id' 
           element={<NoteContext notes={notesWithTags} />} 
         >
           <Route 
@@ -118,14 +119,12 @@ function App() {
               />
             } 
           />
-
         </Route>
 
         <Route 
           path='*' 
-          element={<Navigate to='/' />} 
+          element={<NotFoundPage />} 
         />
-
       </Routes>
     </Container>
   )
