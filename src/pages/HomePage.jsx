@@ -1,8 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Row, Col, Stack, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import ReactSelect from 'react-select';
-
+import SearchNotesForm from '../components/SearchNotesForm/SearchNotesForm';
 import NoteCardList from '../components/NoteCardList/NoteCardList';
 import EditTagsModal from '../components/EditTagsModal/EditTagsModal';
 
@@ -14,9 +13,10 @@ const HomePage = ({
   onDeleteTag
 }) => {
 
-  const [selectedTags, setSelectedTags] = useState([]);
   const [title, setTitle] = useState('');
+  const [selectedTags, setSelectedTags] = useState([]);
   const [isEditTagsModalOpen, setIsEditTagsModalOpen] = useState(false);
+
 
   const filteredNotes = useMemo(() => {
     return notes.filter((note) => {
@@ -34,6 +34,22 @@ const HomePage = ({
       )
     })
   }, [title, selectedTags, notes]);
+
+
+  const handleTitleSearch = (title) => {
+    setTitle(title);
+  };
+
+  const handleTagsSearch = (tags) => {
+    setSelectedTags(
+      tags.map((tag) => {
+        return { 
+          id: tag.value,
+          label: tag.label 
+        }
+      })
+    );
+  };
 
 
   return (
@@ -59,49 +75,14 @@ const HomePage = ({
         </Col>
       </Row>
 
-      <Form>
-        <Row className='mb-4'>
-          <Col>
-            <Form.Group controlId='title'>
-              <Form.Control
-                type='text'
-                value={title}
-                placeholder='Search title by keyword'
-                onChange={(e) => {setTitle(e.target.value)}}
-              />
-            </Form.Group>
-          </Col>
-
-          <Col>
-            <Form.Group controlId='tags'>
-              <ReactSelect
-                isMulti
-                placeholder='Search by tags'
-                value={selectedTags.map((selectedTag) => {
-                  return { label: selectedTag.label, value: selectedTag.id }
-                })}
-                
-                options={availableTags.map((availableTag) => {
-                  return { label: availableTag.label, value: availableTag.id }
-                })}
-
-                onChange={(selectedTags) => {
-                  setSelectedTags(
-                    selectedTags.map((selectedTag) => {
-                      return { 
-                        id: selectedTag.value,
-                        label: selectedTag.label 
-                      }
-                    })
-                  )
-                }}
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-      </Form>
-
-
+      <SearchNotesForm
+        availableTags={availableTags}
+        title={title}
+        selectedTags={selectedTags}
+        onSearchTitle={handleTitleSearch}
+        onSearchTags={handleTagsSearch}
+      />
+   
       <NoteCardList filteredNotes={filteredNotes} />
 
       <EditTagsModal

@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { Form, Stack, Row, Col, Button } from 'react-bootstrap';
-import CreatableReactSelect from 'react-select/creatable';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { v4 as uuidV4 } from 'uuid'
 
+import NoteFormSelect from './NoteFormSelect';
 import CtaButtons from './CtaButtons';
 
 const NoteForm = ({
@@ -30,7 +30,25 @@ const NoteForm = ({
     });
 
     navigate('..');
+  };
 
+  const handleTagsSelect = (tags) => {
+    setSelectedTags(
+      tags.map((tag) => {
+        return { 
+          id: tag.value,
+          label: tag.label
+        }
+      })
+    )
+  };
+
+  const handleTagsCreate = (label) => {
+    const newTag = { id: uuidV4(), label};
+    onAddNewTag(newTag);
+    setSelectedTags((prevTags) => {
+      return [...prevTags, newTag];
+    })
   };
 
   return (
@@ -48,46 +66,12 @@ const NoteForm = ({
           </Col>
           
           <Col>
-            <Form.Group controlId='tags'>
-              <Form.Label>Tags</Form.Label>
-              <CreatableReactSelect 
-                isMulti
-
-                options={ availableTags.map((availableTag) => {
-                  return { 
-                    label: availableTag.label, 
-                    value: availableTag.id
-                  }
-                })}
-
-                value={ selectedTags.map((selectedTag) => {
-                  return { 
-                    label: selectedTag.label,
-                    value: selectedTag.id 
-                  }
-                })}
-
-                onChange={(selectedTags) => {
-                  setSelectedTags(
-                    selectedTags.map((selectedTag) => {
-                      return { 
-                        id: selectedTag.value,
-                        label: selectedTag.label
-                      }
-                    })
-                  )
-                }}
-
-                onCreateOption={(label) => {
-                  const newTag = { id: uuidV4(), label};
-                  onAddNewTag(newTag);
-                  setSelectedTags((prevTags) => {
-                    return [...prevTags, newTag];
-                  })
-
-                }}
-              />
-            </Form.Group>
+            <NoteFormSelect
+                availableTags={availableTags}
+                selectedTags={selectedTags}
+                onSelectTags={handleTagsSelect}
+                onCreateTags={handleTagsCreate}
+            />
           </Col>
         </Row>
         

@@ -5,6 +5,7 @@ const CreateNotePage = ({
   onCreateNote,
   onAddNewTag
 }) => {
+
   return (
     <>
     <h1 className="mb-4">New Note</h1>
