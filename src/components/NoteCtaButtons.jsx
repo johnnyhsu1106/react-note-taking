@@ -7,7 +7,7 @@ const NoteCtaButtons = ({
 }) => {
   const note = useNote();
   const navigate = useNavigate();
-  const {id} = note;
+  const { id } = note;
   
   return (
     <>

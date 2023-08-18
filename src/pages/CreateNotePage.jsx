@@ -8,13 +8,13 @@ const CreateNotePage = ({
 
   return (
     <>
-    <h1 className="mb-4">New Note</h1>
-    <NoteForm
-      onSubmitForm={onCreateNote}
-      onAddNewTag={onAddNewTag}
-      availableTags={availableTags}
-    />
-  </>
+      <h1 className="mb-4">New Note</h1>
+      <NoteForm
+        onSubmitForm={onCreateNote}
+        onAddNewTag={onAddNewTag}
+        availableTags={availableTags}
+      />
+    </>
   )
 }
 

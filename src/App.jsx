@@ -2,15 +2,12 @@ import { useMemo } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
 import { v4 as uuidV4 } from 'uuid'
-
 import HomePage from './pages/Homepage';
 import NotesPage from './pages/NotesPage';
 import CreateNotePage from './pages/CreateNotePage';
 import EditNotePage from './pages/EditNotePage';
-
 import { NoteContext } from './context/NoteContext';
 import useLocalStorage from './hooks/useLocalStorage';
-
 import './App.css'
 
 
@@ -29,7 +26,6 @@ function App() {
       }
     })
   }, [notes, tags]);
-
 
   const handleNoteCreate = ({tags, ...data}) => {
     setNotes((prevNotes) => {
@@ -103,7 +99,10 @@ function App() {
           } 
         />
 
-        <Route path='/:id' element={<NoteContext notes={notesWithTags} />} >
+        <Route 
+          path='/:id' 
+          element={<NoteContext notes={notesWithTags} />} 
+        >
           <Route 
             index 
             element={<NotesPage onDeleteNote={handleNoteDelete} />} 
@@ -119,12 +118,16 @@ function App() {
               />
             } 
           />
+
         </Route>
 
-        <Route path='*' element={<Navigate to='/' />} />
-        </Routes>
-    </Container>
+        <Route 
+          path='*' 
+          element={<Navigate to='/' />} 
+        />
 
+      </Routes>
+    </Container>
   )
 }
 

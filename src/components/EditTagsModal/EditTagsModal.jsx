@@ -27,30 +27,6 @@ const EditTagsModal = ({
               onUpdateTag={onUpdateTag}
               onDeleteTag={onDeleteTag} 
             />
-            {/* { availableTags.map((availableTag) => {
-              const { id, label } = availableTag;
-              return (
-                <Row key={id}>
-                  <Col>
-                    <Form.Control
-                      type='text'
-                      value={label}
-                      onChange={(e) => { onUpdateTag(id, e.target.value) } }
-                    />
-                  </Col>
-
-                  <Col xs='auto'>
-                    <Button
-                      onClick={() =>{ onDeleteTag(id) }}
-                      variant='outline-danger'
-                    >
-                      &times;
-                    </Button>
-                  </Col>
-                </Row>
-                )
-              }
-            )} */}
           </Stack>
         </Form>
       </Modal.Body>
