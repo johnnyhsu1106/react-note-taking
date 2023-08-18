@@ -78,11 +78,6 @@ function App() {
     })
   };
 
-  const handleTagSelect = (tag) => {
-    
-  }
-
-
   return (
     <Container className='my-4'>
       <Routes>
