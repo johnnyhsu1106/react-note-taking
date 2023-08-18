@@ -15,6 +15,7 @@ const EditTagList = ({
         <Row key={id}>
           <Col>
             <EditTagInput 
+              id={id}
               label={label}
               onUpdateTag={onUpdateTag}
             />

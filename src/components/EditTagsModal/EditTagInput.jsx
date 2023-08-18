@@ -1,6 +1,7 @@
 import { Form } from 'react-bootstrap';
 
 const EditTagInput = ({
+  id,
   label,
   onUpdateTag
 }) => {
