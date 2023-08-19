@@ -2,14 +2,13 @@ import { Form, Row, Col } from 'react-bootstrap'
 import SearchNotesTitleInput from './SearchNotesTitleInput'
 import SearchNotesTagsSelect from './SearchNotesTagsSelect'
 
+
 const SearchNotesForm = ({
-  availableTags,
   title,
   selectedTags,
   onSearchTitle,
   onSearchTags
 }) => {
-
   return (
     <Form>
       <Row className='mb-4'>
@@ -22,7 +21,6 @@ const SearchNotesForm = ({
 
         <Col>
           <SearchNotesTagsSelect
-            availableTags={availableTags}
             selectedTags={selectedTags}
             onSearchTags={onSearchTags}
           />

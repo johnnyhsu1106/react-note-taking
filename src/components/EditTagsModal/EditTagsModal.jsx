@@ -1,12 +1,9 @@
-import { Modal, Stack, Row, Col, Form, Button } from 'react-bootstrap';
+import { Modal, Stack, Form } from 'react-bootstrap';
 import EditTagList from './EditTagList';
 
 
 const EditTagsModal = ({
   isModalOpen,
-  availableTags,
-  onUpdateTag,
-  onDeleteTag,
   onCloseModal
 }) => {
   
@@ -23,9 +20,6 @@ const EditTagsModal = ({
         <Form>
           <Stack gap={2}>
             <EditTagList
-              availableTags={availableTags}
-              onUpdateTag={onUpdateTag}
-              onDeleteTag={onDeleteTag} 
             />
           </Stack>
         </Form>

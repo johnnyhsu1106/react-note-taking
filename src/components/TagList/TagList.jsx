@@ -1,5 +1,6 @@
-import { Badge, Stack } from 'react-bootstrap'
+import { Stack } from 'react-bootstrap'
 import Tag from './Tag';
+
 
 const TagList = ({
   tags

@@ -1,12 +1,13 @@
 import { useId } from 'react';
 import { Form } from 'react-bootstrap';
 
+
 const SearchNotesTitleInput = ({
   title,
   onSearchTitle
 }) => {
-
   const divId = useId();
+
   return (
     <Form.Group controlId={`${divId}-title`}>
       <Form.Label hidden>Title</Form.Label>

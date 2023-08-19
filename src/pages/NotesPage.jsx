@@ -1,26 +1,20 @@
 import ReactMarkdown from 'react-markdown';
-import { Row, Col, Stack } from 'react-bootstrap';
+import { Row, Col, Stack, Button } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-
 import TagList from '../components/TagList/TagList';
-
 import { useNote } from '../context/NoteContext';
+import { useNotesContext } from '../context/NotesContext';
 
 
-const NotesPage = ({
-  onDeleteNote
-}) => {
-  
-  const note = useNote();
+const NotesPage = () => {
+  const { handleNoteDelete } = useNotesContext();
   const navigate = useNavigate();
-  const {id} = note;
-  
   const {
+    id,
     title,
     tags,
     markdown, 
-  } = note;
+  } = useNote();
 
   return (
     <>
@@ -42,7 +36,7 @@ const NotesPage = ({
           <Button       
             variant='outline-danger'
             onClick={() => {
-              onDeleteNote(id)
+              handleNoteDelete(id)
               navigate('/')
             }}
           >

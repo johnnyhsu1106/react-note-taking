@@ -1,14 +1,14 @@
-import { Navigate, Outlet, useOutletContext, useParams } from 'react-router-dom';
+import { Outlet, useOutletContext, useParams } from 'react-router-dom';
 import NotFoundPage from '../pages/NotFoundPage';
+import { useNotesContext } from './NotesContext';
 
 
-const NoteContext = ({
-  notes
-}) => {
-
+const NoteContext = () => {
+  const { notesWithTags } = useNotesContext();
   const { id } = useParams();
-  const targetNote = notes.find((note) => {
-    return note.id === id;
+
+  const targetNote = notesWithTags.find((noteWithTags) => {
+    return noteWithTags.id === id;
   });
 
   if (!targetNote) {

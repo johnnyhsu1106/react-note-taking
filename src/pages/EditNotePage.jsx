@@ -1,13 +1,10 @@
 import NoteForm from '../components/NoteForm/NoteForm';
 import { useNote } from '../context/NoteContext';
+import { useNotesContext } from '../context/NotesContext';
 
 
-const EditNotePage = ({
-  availableTags,
-  onUpdateNote,
-  onAddNewTag
-}) => {
-
+const EditNotePage = () => {
+  const { handleNoteUpdate } = useNotesContext();
   const note = useNote();
   const { id } = note;
 
@@ -16,9 +13,7 @@ const EditNotePage = ({
       <h1 className="mb-4">Edit Note</h1>
       <NoteForm
         {...note}
-        onSubmitForm={(noteData) => onUpdateNote(id, noteData)}
-        onAddNewTag={onAddNewTag}
-        availableTags={availableTags}
+        onSubmitForm={(noteData) => handleNoteUpdate(id, noteData)}
       />
     </>
   )

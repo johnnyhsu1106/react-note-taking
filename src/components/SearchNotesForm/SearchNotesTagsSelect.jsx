@@ -1,14 +1,16 @@
 import { useId } from 'react';
 import { Form } from 'react-bootstrap';
 import ReactSelect from 'react-select';
+import { useNotesContext } from '../../context/NotesContext';
 
 
 const SearchNotesTagsSelect = ({
-  availableTags,
   selectedTags,
   onSearchTags
 }) => {
+  const { availableTags } = useNotesContext();
   const divId = useId();
+
   return (
     <Form.Group controlId={`${divId}-title`}>
       <Form.Label hidden>Title</Form.Label>

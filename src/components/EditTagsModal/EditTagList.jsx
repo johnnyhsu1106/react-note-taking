@@ -1,12 +1,11 @@
 import { Row, Col } from 'react-bootstrap';
 import EditTagInput from './EditTagInput';
 import EditTagButton from './EditTagButton';
+import { useNotesContext } from '../../context/NotesContext';
 
-const EditTagList = ({
-  availableTags,
-  onUpdateTag,
-  onDeleteTag
-}) => {
+
+const EditTagList = () => {
+  const { availableTags } = useNotesContext();
 
   return (
     availableTags.map((availableTag) => {
@@ -17,15 +16,11 @@ const EditTagList = ({
             <EditTagInput 
               id={id}
               label={label}
-              onUpdateTag={onUpdateTag}
             />
           </Col>
 
           <Col xs='auto'>
-            <EditTagButton
-              id={id}
-              onDeleteTag={onDeleteTag}
-            />
+            <EditTagButton id={id} />
           </Col>
         </Row>
         )

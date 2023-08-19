@@ -1,13 +1,13 @@
 import { Button } from 'react-bootstrap'
+import { useNotesContext } from '../../context/NotesContext'
 
 
-const EditTagButton = ({
-  id,
-  onDeleteTag
-}) => {
+const EditTagButton = ({ id }) => {
+  const { handleTagDelete } = useNotesContext();
+
   return (
     <Button
-      onClick={() =>{ onDeleteTag(id) }}
+      onClick={() =>{ handleTagDelete(id) }}
       variant='outline-danger'
     >
       &times;

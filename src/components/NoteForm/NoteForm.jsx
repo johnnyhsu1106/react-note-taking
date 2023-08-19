@@ -2,14 +2,12 @@ import { useId, useRef, useState } from 'react';
 import { Form, Stack, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidV4 } from 'uuid'
-
 import NoteFormSelect from './NoteFormSelect';
 import CtaButtons from './CtaButtons';
+import { useNotesContext } from '../../context/NotesContext';
 
 const NoteForm = ({
   onSubmitForm,
-  onAddNewTag,
-  availableTags,
   title = '',
   markdown = '',
   tags = []
@@ -20,6 +18,8 @@ const NoteForm = ({
   const markdownRef = useRef(null);
   const navigate = useNavigate();
   const divId = useId();  
+
+  const { handleTagAdd } = useNotesContext();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ const NoteForm = ({
 
   const handleTagsCreate = (label) => {
     const newTag = { id: uuidV4(), label};
-    onAddNewTag(newTag);
+    handleTagAdd(newTag);
     setSelectedTags((prevTags) => {
       return [...prevTags, newTag];
     })
@@ -69,7 +69,6 @@ const NoteForm = ({
           
           <Col>
             <NoteFormSelect
-              availableTags={availableTags}
               selectedTags={selectedTags}
               onSelectTags={handleTagsSelect}
               onCreateTags={handleTagsCreate}

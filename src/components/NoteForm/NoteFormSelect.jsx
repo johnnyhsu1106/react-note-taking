@@ -1,14 +1,15 @@
 import { useId } from 'react';
 import { Form } from 'react-bootstrap'
 import CreatableReactSelect from 'react-select/creatable';
+import { useNotesContext } from '../../context/NotesContext';
 
 
 const NoteFormSelect = ({
-  availableTags,
   selectedTags,
   onSelectTags,
   onCreateTags
 }) => {
+  const { availableTags } = useNotesContext();
   const divId = useId();
   
   return (
