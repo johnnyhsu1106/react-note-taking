@@ -51,23 +51,23 @@ const NotesProvider = ({children} ) => {
   };
 
   const handleTagAdd = (newTag) => {
-    setAvailableTags((prevTag) => {
-      return [...prevTag, newTag];
+    setAvailableTags((prevAvailableTags) => {
+      return [...prevAvailableTags, newTag];
     })
   };
 
   const handleTagUpdate = (id, label) => {
-    setAvailableTags((prevTags) => {
-      return prevTags.map((prevTag) => {
-        return prevTag.id === id ? {...prevTag, label } : prevTag;
+    setAvailableTags((prevAvailableTags) => {
+      return prevAvailableTags.map((prevAvailableTag) => {
+        return prevAvailableTag.id === id ? {...prevAvailableTag, label } : prevAvailableTag;
       });
     })
   };
 
   const handleTagDelete = (tagId) => {
-    setAvailableTags((prevTags) => {
-      return prevTags.filter((prevTag) => {
-        return prevTag.id !== tagId;
+    setAvailableTags((prevAvailableTags) => {
+      return prevAvailableTags.filter((prevAvailableTag) => {
+        return prevAvailableTag.id !== tagId;
       })
     })
   };
