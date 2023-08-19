@@ -8,7 +8,7 @@ const SearchNotesTagsSelect = ({
   selectedTags,
   onSearchTags
 }) => {
-  const { tags } = useNotesContext();
+  const { availableTags } = useNotesContext();
   const divId = useId();
 
   return (
@@ -21,7 +21,7 @@ const SearchNotesTagsSelect = ({
           return { label: selectedTag.label, value: selectedTag.id }
         })}
         
-        options={tags.map((availableTag) => {
+        options={availableTags.map((availableTag) => {
           return { label: availableTag.label, value: availableTag.id }
         })}
         onChange={(tags) => { onSearchTags(tags) }}

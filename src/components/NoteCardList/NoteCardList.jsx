@@ -9,18 +9,10 @@ const NoteCardList = ({
   return (
     <Row xs={1} sm={2} lg={3} xl={4} className='g-3'>
       { filteredNotes.map((filteredNote) => {
-        const { 
-          id , 
-          title, 
-          tags 
-        } = filteredNote;
-        
         return (
-          <Col key={id}>
+          <Col key={filteredNote.id}>
             <NoteCard
-              id={id}
-              title={title}
-              tags={tags} 
+              {...filteredNote}
             />
           </Col>
         )

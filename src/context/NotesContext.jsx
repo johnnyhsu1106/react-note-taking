@@ -14,16 +14,16 @@ const NotesProvider = ({children} ) => {
   // notesWithTags format:  [{ id, title, markdown, tags: [{ id: tagId, label: label }] }, ...]
 
   const [notes, setNotes] = useLocalStorage('NOTES', []);
-  const [tags, setTags] = useLocalStorage('TAGS', []);
+  const [availableTags, setAvailableTags] = useLocalStorage('TAGS', []);
   
   const notesWithTags = useMemo(() => {
     return notes.map((note) => {
       return { 
         ...note, 
-        tags: tags.filter((tag) => { return note.tagIds.includes(tag.id)} )
+        tags: availableTags.filter((availableTag) => { return note.tagIds.includes(availableTag.id)} )
       }
     })
-  }, [notes, tags]);
+  }, [notes, availableTags]);
 
   const handleNoteCreate = ({tags, ...data}) => {
     setNotes((prevNotes) => {
@@ -51,13 +51,13 @@ const NotesProvider = ({children} ) => {
   };
 
   const handleTagAdd = (newTag) => {
-    setTags((prevTag) => {
+    setAvailableTags((prevTag) => {
       return [...prevTag, newTag];
     })
   };
 
   const handleTagUpdate = (id, label) => {
-    setTags((prevTags) => {
+    setAvailableTags((prevTags) => {
       return prevTags.map((prevTag) => {
         return prevTag.id === id ? {...prevTag, label } : prevTag;
       });
@@ -65,7 +65,7 @@ const NotesProvider = ({children} ) => {
   };
 
   const handleTagDelete = (tagId) => {
-    setTags((prevTags) => {
+    setAvailableTags((prevTags) => {
       return prevTags.filter((prevTag) => {
         return prevTag.id !== tagId;
       })
@@ -75,7 +75,7 @@ const NotesProvider = ({children} ) => {
   
   const value = {
     notesWithTags,
-    tags: tags,
+    availableTags,
     handleNoteCreate,
     handleNoteUpdate,
     handleNoteDelete,

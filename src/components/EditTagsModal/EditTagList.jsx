@@ -5,10 +5,10 @@ import { useNotesContext } from '../../context/NotesContext';
 
 
 const EditTagList = () => {
-  const { tags } = useNotesContext();
+  const { availableTags } = useNotesContext();
 
   return (
-    tags.map((availableTag) => {
+    availableTags.map((availableTag) => {
       const { id, label } = availableTag;
       return (
         <Row key={id}>

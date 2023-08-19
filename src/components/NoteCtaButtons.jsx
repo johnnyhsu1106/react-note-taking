@@ -5,9 +5,8 @@ import { useNote } from '../context/NoteContext';
 const NoteCtaButtons = ({
   onDeleteNote
 }) => {
-  const note = useNote();
   const navigate = useNavigate();
-  const { id } = note;
+  const { id } = useNote();  
   
   return (
     <>

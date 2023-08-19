@@ -3,9 +3,7 @@ import { useNotesContext } from '../context/NotesContext';
 
 
 const CreateNotePage = () => {
-  const {
-    handleNoteCreate
-  } = useNotesContext();
+  const { handleNoteCreate } = useNotesContext();
 
   return (
     <>
