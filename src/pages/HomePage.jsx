@@ -24,7 +24,7 @@ const HomePage = () => {
           selectedTags.every((selectedTag) => {
             return noteWithTags.tags.some((noteTag) => {
               return noteTag.id === selectedTag.id 
-          })
+          });
         })
       )
     })

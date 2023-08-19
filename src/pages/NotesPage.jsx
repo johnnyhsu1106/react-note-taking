@@ -43,7 +43,7 @@ const NotesPage = () => {
             Delete
           </Button>
 
-          <Link to='/'>
+          <Link to='..'>
             <Button variant='outline-secondary'>Back</Button>
           </Link>
         
