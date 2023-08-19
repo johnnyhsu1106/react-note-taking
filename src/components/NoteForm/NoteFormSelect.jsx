@@ -7,7 +7,7 @@ import { useNotesContext } from '../../context/NotesContext';
 const NoteFormSelect = ({
   selectedTags,
   onSelectTags,
-  onCreateTags
+  onCreateTag
 }) => {
   const { availableTags } = useNotesContext();
   const divId = useId();
@@ -38,7 +38,7 @@ const NoteFormSelect = ({
         }}
 
         onCreateOption={(label) => {
-          onCreateTags(label);
+          onCreateTag(label);
         }}
       />
     </Form.Group>

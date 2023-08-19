@@ -12,7 +12,7 @@ const NoteForm = ({
   markdown = '',
   tags = []
 }) => {
-  // tags = [{id, label}, ...]
+
   const [selectedTags, setSelectedTags] = useState(tags);
   const titleRef = useRef(null);
   const markdownRef = useRef(null);
@@ -27,7 +27,7 @@ const NoteForm = ({
     onSubmitForm({
       title: titleRef.current.value,
       markdown: markdownRef.current.value,
-      tags: selectedTags
+      tags: selectedTags // tags = [{id, label}, ...]
     });
 
     navigate('/');
@@ -44,7 +44,7 @@ const NoteForm = ({
     )
   };
 
-  const handleTagsCreate = (label) => {
+  const handleTagCreate = (label) => {
     const newTag = { id: uuidV4(), label };
     handleTagAdd(newTag);
     setSelectedTags((prevTags) => {
@@ -71,7 +71,7 @@ const NoteForm = ({
             <NoteFormSelect
               selectedTags={selectedTags}
               onSelectTags={handleTagsSelect}
-              onCreateTags={handleTagsCreate}
+              onCreateTag={handleTagCreate}
             />
           </Col>
         </Row>
