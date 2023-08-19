@@ -30,7 +30,7 @@ const NoteForm = ({
       tags: selectedTags
     });
 
-    navigate('..');
+    navigate('/');
   };
 
   const handleTagsSelect = (tags) => {
