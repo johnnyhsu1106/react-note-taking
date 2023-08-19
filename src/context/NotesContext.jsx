@@ -14,7 +14,7 @@ const NotesProvider = ({children} ) => {
   // notesWithTags format:  [{ id, title, markdown, tags: [{ id: tagId, label }] }, ...]
 
   const [notes, setNotes] = useLocalStorage('NOTES', []);
-  const [availableTags, setAvailableTags] = useLocalStorage('TAGS', []);
+  const [availableTags, setAvailableTags] = useLocalStorage('AVAILABLE_TAGS', []);
   
   const notesWithTags = useMemo(() => {
     return notes.map((note) => {
