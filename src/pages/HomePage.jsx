@@ -16,7 +16,7 @@ const HomePage = () => {
   const filteredNotes = useMemo(() => {
     return notesWithTags.filter((noteWithTags) => {
       if (title.trim() === '' && selectedTags.length === 0) {
-        return []
+        return noteWithTags;
       }
 
       return (
