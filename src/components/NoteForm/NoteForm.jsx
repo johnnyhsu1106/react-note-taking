@@ -45,7 +45,7 @@ const NoteForm = ({
   };
 
   const handleTagsCreate = (label) => {
-    const newTag = { id: uuidV4(), label};
+    const newTag = { id: uuidV4(), label };
     handleTagAdd(newTag);
     setSelectedTags((prevTags) => {
       return [...prevTags, newTag];

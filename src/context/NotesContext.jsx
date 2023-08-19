@@ -11,7 +11,7 @@ const useNotesContext = () => {
 const NotesProvider = ({children} ) => {
   // notes format: [{ id, title, markdown, tagIds:: [...] }, ...]
   // tags format: [{ id, label }, ...]
-  // notesWithTags format:  [{ id, title, markdown, tags: [{ id: tagId, label: label }] }, ...]
+  // notesWithTags format:  [{ id, title, markdown, tags: [{ id: tagId, label }] }, ...]
 
   const [notes, setNotes] = useLocalStorage('NOTES', []);
   const [availableTags, setAvailableTags] = useLocalStorage('TAGS', []);
