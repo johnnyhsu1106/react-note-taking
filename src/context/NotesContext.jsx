@@ -29,7 +29,7 @@ const NotesProvider = ({children} ) => {
     setNotes((prevNotes) => {
       return [
         ...prevNotes, 
-        { ...data, id: uuidV4(), tagIds: tags.map((tag) => {return tag.id}) }
+        { ...data, id: uuidV4(), tagIds: tags.map((tag) => {return tag.id}) } // extract tag.id from tag
       ]
     });
   };
