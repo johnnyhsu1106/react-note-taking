@@ -9,7 +9,7 @@ const NoteFormSelect = ({
   onSelectTags,
   onCreateTags
 }) => {
-  const { availableTags } = useNotesContext();
+  const { tags } = useNotesContext();
   const divId = useId();
   
   return (
@@ -19,7 +19,7 @@ const NoteFormSelect = ({
         isMulti
         placeholder='Add some tags...'
 
-        options={ availableTags.map((availableTag) => {
+        options={ tags.map((availableTag) => {
           return { 
             label: availableTag.label, 
             value: availableTag.id

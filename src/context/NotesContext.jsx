@@ -75,7 +75,7 @@ const NotesProvider = ({children} ) => {
   
   const value = {
     notesWithTags,
-    availableTags: tags,
+    tags: tags,
     handleNoteCreate,
     handleNoteUpdate,
     handleNoteDelete,
