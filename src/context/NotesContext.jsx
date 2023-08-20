@@ -56,10 +56,10 @@ const NotesProvider = ({children} ) => {
     })
   };
 
-  const handleTagUpdate = (id, label) => {
+  const handleTagUpdate = (tagId, label) => {
     setAvailableTags((prevAvailableTags) => {
       return prevAvailableTags.map((prevAvailableTag) => {
-        return prevAvailableTag.id === id ? {...prevAvailableTag, label } : prevAvailableTag;
+        return prevAvailableTag.id === tagId ? {...prevAvailableTag, label } : prevAvailableTag;
       });
     })
   };

@@ -9,13 +9,12 @@ const EditTagList = () => {
 
   return (
     availableTags.map((availableTag) => {
-      const { id, label } = availableTag;
+      const { id } = availableTag;
       return (
         <Row key={id}>
           <Col>
             <EditTagInput 
-              id={id}
-              label={label}
+              {...availableTag}
             />
           </Col>
 
