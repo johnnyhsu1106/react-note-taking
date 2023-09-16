@@ -72,7 +72,7 @@ const NotesProvider = ({children} ) => {
     })
   };
 
-  const noteValue = {
+  const value = {
     notesWithTags,
     availableTags,
     handleNoteCreate,
@@ -84,7 +84,7 @@ const NotesProvider = ({children} ) => {
   };
 
   return (
-    <NotesContext.Provider value={noteValue}>
+    <NotesContext.Provider value={value}>
       {children}    
     </NotesContext.Provider>
   )
