@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "react-note-taking-by-jh",
     "public": "dist",
     "ignore": [
       "firebase.json",
