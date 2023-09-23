@@ -7,7 +7,8 @@ const SearchNotesForm = ({
   title,
   selectedTags,
   onSearchTitle,
-  onSearchTags
+  onClearSearch,
+  onSearchTags,
 }) => {
   return (
     <Form>
@@ -15,6 +16,7 @@ const SearchNotesForm = ({
         <Col>
           <SearchNotesTitleInput
             title={title}
+            onClearSearch={onClearSearch}
             onSearchTitle={onSearchTitle}
           />
         </Col>

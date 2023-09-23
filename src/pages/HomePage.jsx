@@ -35,6 +35,10 @@ const HomePage = () => {
     setTitle(title);
   };
 
+  const handleClearSearch = () => {
+    setTitle('');
+  };
+
   const handleTagsSearch = (tags) => {
     setSelectedTags(
       tags.map((tag) => {
@@ -73,6 +77,7 @@ const HomePage = () => {
       <SearchNotesForm
         title={title}
         selectedTags={selectedTags}
+        onClearSearch={handleClearSearch}
         onSearchTitle={handleTitleSearch}
         onSearchTags={handleTagsSearch}
       />
