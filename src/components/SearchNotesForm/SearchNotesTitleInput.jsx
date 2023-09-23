@@ -8,9 +8,10 @@ const SearchNotesTitleInput = ({
   onClearSearch
 }) => {
   const divId = useId();
+  const hasSearchQuery = title !== '';
 
-  const DeleteBtn = memo(({ title }) => {
-    if (title.trim() === '') {
+  const DeleteBtn = memo(({ hasSearchQuery }) => {
+    if (!hasSearchQuery) {
       return null;
     }
     return (
@@ -35,7 +36,7 @@ const SearchNotesTitleInput = ({
         placeholder='Search title by keyword'
         onChange={(e) => { onSearchTitle(e.target.value)} }
       />
-      <DeleteBtn title={title} />
+      <DeleteBtn hasSearchQuery={hasSearchQuery} />
   </Form.Group>
   )
 }
